@@ -1,5 +1,15 @@
 CXXFLAGS = -O3
 
-LinAliFold: centroid_lin_ali_fold.cpp linear_partition.cpp lin_ali_partition.cpp utils.cpp ribosum.cpp main.cpp 
+all: LinAliFold CentroidLinAliFold
 
-	$(CXX) $(CXXFLAGS) -o CentroidLinAliFold main.cpp centroid_lin_ali_fold.cpp linear_partition.cpp lin_ali_partition.cpp utils.cpp ribosum.cpp -std=c++11 
+SOURCES1=$(wildcard src/LinAliFold/*.cpp)
+
+LinAliFold: $(SOURCES1)
+
+	$(CXX) $(CXXFLAGS) -o ./bin/LinAliFold $(SOURCES1) -std=c++11 
+
+SOURCES2=$(wildcard src/CentroidLinAliFold/*.cpp)
+
+CentroidLinAliFold: $(SOURCES2) 
+
+	$(CXX) $(CXXFLAGS) -o ./bin/CentroidLinAliFold $(SOURCES2) -std=c++11 
