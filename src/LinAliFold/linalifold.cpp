@@ -308,7 +308,7 @@ void LinAliFold::Parse(){
 	  
 	  if(cons_score > _conservation_score_threshold){
 	    //approximation
-	    double new_score = ML_BASE37*_num_of_seq*((h-g-1)+(g_pair-i-1));
+	    double new_score = -ML_BASE37*_num_of_seq*((h-g-1)+(g_pair-i-1));
 	    UpdateIfBetter(_multi_best[g_pair][g], state.score + new_score/_num_of_seq, MULTI, h-g, g_pair-i);
 	    break;
 	  }
